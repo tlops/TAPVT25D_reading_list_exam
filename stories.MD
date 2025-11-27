@@ -1,0 +1,2 @@
+# Background
+"Läslistan" är en webbsida där man kan välja ut sina favoriter från en katalog med böcker, eller lägga till nya. Beställaren är en organisation som vill öka barns och ungas läsande. Nuvarande version har begränsad funktionalitet. På sikt vill man utöka webbsidan med funktioner för att dela sina listor, skapa quiz och diskutera böcker med varandra. Därför är det viktigt att det fi nns tester för all grundläggande funktionalitet. Detta är din uppgift!
