@@ -1,0 +1,54 @@
+__pycache__/
+*.py[cod]
+*$py.class
+
+src/features/pages/__pycache__/
+# Unit test / coverage reports
+.coverage
+.coverage.*
+htmlcov/
+.cache/
+pytest_cache/
+
+# Behave
+reports/
+*.log
+
+myenv/
+.myenv/
+.venv/
+venv/
+ENV/
+env/
+
+
+# VS Code
+.vscode/
+
+# PyCharm / IntelliJ
+.idea/
+
+
+# Browser binaries
+playwright/.cache/
+**/playwright/.cache/
+**/playwright/.local-browsers/
+
+# Test output (screenshots, videos)
+test-results/
+playwright-report/
+blob-report/
+
+
+# Linux
+.*.swp
+.*.swo
+
+# Logs
+*.log
+
+*.tmp
+*.bak
+*.backup
+*.orig
+

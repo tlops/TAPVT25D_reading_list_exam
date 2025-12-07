@@ -1,0 +1,68 @@
+from behave import given, when, then
+from features.pages.catalog_page import CatalogPage
+"""
+@given("I open the app")
+def open_app(context):
+    context.page.goto(context.base_url)
+    context.catalog = CatalogPage(context.page)
+"""
+# 1. navigate to the add book page
+# US-4_AC1.
+@when("I click the 'Lägg till bok' navigation button")
+def click_add_book(context):
+    #context.catalog = CatalogPage(context.page)
+    context.addbook = CatalogPage(context.page)
+    context.addbook.click_add_book_nav()
+
+# 2. Verify that you are on the right page
+# US-2_AC1
+@then("I should see inputs for title and author")
+def see_inputs(context):
+    assert context.page.locator('input[data-testid="add-input-title"]').is_visible()
+    assert context.page.locator('input[data-testid="add-input-author"]').is_visible()
+
+# 3. Enter the new book title and Author
+# US-2_AC2
+@when('I fill Titel "{title}" and Författare "{author}"')
+def fill_form(context, title, author):
+    context.page.fill('input[data-testid="add-input-title"]', title)
+    context.page.fill('input[data-testid="add-input-author"]', author)
+    # enable submit if it was disabled by the app's logic (but the app normally enables it)
+    # click submit
+    # The submit button is activated by typing ib both Titel and author fields
+
+# 4. Click the "Lägg till ny bok" button to confirm your entry
+# US-2_AC3
+@when('I click the "Lägg till ny bok" button')
+def submit_entry(context):
+    btn = context.page.locator('button[data-testid="add-submit"]')
+    if btn.get_attribute('disabled'):
+        # if disabled, attempt to enable by typing; but normally typing will enable it
+       pass
+    btn.click()
+
+# 5. Navigate back to 'Katalog' page to check the new entry
+# US-4_AC3
+@then("I navigate to the katalog")
+def goto_catalog(context):
+        context.catalog.click_catalog_nav()
+
+# 6. ensure that we are on the right page by waiting for it to load
+@then("I should be on the katalog page")
+def step_verify_catalog_page(context):
+    context.catalog.wait_until_loaded()
+
+
+# 7, Verify the book is added
+# US-2_AC4
+@then('the last book in the catalog should be \'{expected}\'')
+def check_last_book_exact(context, expected):
+    # ensure we are on catalog
+    context.catalog = CatalogPage(context.page)
+    
+    # identify the last book in the catalog
+    last_book = context.catalog.last_catalog_item_text()
+    #assert expected in last, f"Expected '{expected}' in last catalog item but got: {last}"
+    assert expected in last_book, f"Expected '{expected}' to be in the last catalog item but got: {last_book}"
+
+##@when('the user enters "{title}" as the book title')
