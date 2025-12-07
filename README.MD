@@ -71,5 +71,6 @@ python -m playwright install     # install browsers
 
 ## 📝 Notes
 - The webapp does **not persist data across refresh** → tests do NOT require persistence.
-- Tests rely heavily on `data-testid` selectors as it was unique. 
+- Tests rely heavily on `data-testid` selectors as it was unique.
+- I used this page to format my *.md file https://markdownlivepreview.com/ 
 
