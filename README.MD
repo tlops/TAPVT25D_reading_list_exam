@@ -67,10 +67,13 @@ python -m playwright install     # install browsers
     - Tested implicitly as part of other tests.
 
 5. **Scenario Outline**  
-   - Tests adding multiple books from a table  (Not passed)
+   - Tests adding multiple books from a table 
+   - *The test passed but because new pages was created per scernario*
+     *it cannot increase beyond 8*
 
 ## 📝 Notes
 - The webapp does **not persist data across refresh** → tests do NOT require persistence.
 - Tests rely heavily on `data-testid` selectors as it was unique.
+- Testing multiple books addition requires the page to not reload per session. 
 - I used this page to format my *.md file https://markdownlivepreview.com/ 
 
