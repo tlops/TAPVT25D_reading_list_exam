@@ -12,21 +12,20 @@ Feature: Add book
     When I click the "Lägg till ny bok" button
     Then I navigate to the katalog
     And the last book in the catalog should be '"My New Book", An Author'
-    
-"""
-  Scenario Outline: Add several books and verify each appears last
+
+  Scenario Outline: Open add-book page and add multiple books
+    Given I open the app
     When I click the 'Lägg till bok' navigation button
     Then I should see inputs for title and author
     When I fill Titel "<title>" and Författare "<author>"
-    When I click the "Lägg till ny bok" button
-    Then I navigate to the katalog
-    And I should be on the katalog page
-    And the last book in the catalog should be '"<title>", <author>'
+    And I click the "Lägg till ny bok" button 
+    And I navigate to the katalog
+    Then the last book in the catalog should be '"<title>", <author>'
+    And the catalog should contain at least 8 books 
+    #And the catalog should contain at least 10 books 
 
     Examples:
-      | title                     | author         |
-      | Horse in a Spaceship      | Luna G. Rider  |
-      | Zero Gravity Cooking      | Chef Orbit     |
-      | My New Book               | An Author      |
-
- """
+	| title                       | author                   |
+        | 48 Laws of Power            | Robert Greene            |
+	| The richest Man in Babylon  | George Clason            |
+	| Things Fall Apart           | Chinua Achebe            |

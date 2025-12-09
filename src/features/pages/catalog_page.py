@@ -34,7 +34,7 @@ class CatalogPage:
         return self.page.locator('div.catalog > div.book').count()
 
     """
-    # my new code
+    # test new code
     def last_catalog_item_text(self):
         #books = self.catalog_list()
         books = self.page.locator("div.catalog > div.book")

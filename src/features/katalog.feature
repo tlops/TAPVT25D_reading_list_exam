@@ -9,8 +9,8 @@ Feature: Catalog view and content
 		And the catalog should contain 7 books
 #
 
-    Scenario Outline: Navigate Between Views
-        Given I open the app
+#    Scenario Outline: Navigate Between Views
+#        Given I open the app
 
 #	Scenario Outline: Catalog contains added books at the end
 #		Given I open the app
